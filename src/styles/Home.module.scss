@@ -1,0 +1,15 @@
+.container {
+	display: flex;
+   .main {
+      display: flex;
+      padding: 0 6.875rem;
+      //margin: 0 auto;
+      min-width: 1170px;
+      min-height: calc(100vh - 94.5px);
+      background: #f2f2f2;
+      h1 {
+         font-size: 44px;
+         font-weight: bold;
+      }
+   }
+}
