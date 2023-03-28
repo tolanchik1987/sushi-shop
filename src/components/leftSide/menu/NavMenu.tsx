@@ -13,62 +13,62 @@ import SaleImg from "../../../../public/images/home/menu/10.png";
 import Image from "next/image";
 import Link from "next/link";
 import cn from "classnames";
+import { useRouter } from "next/router";
+
+const navMenu: string[] = [
+   "Пицца",
+   "Сеты",
+   "WOK",
+   "Роллы",
+   "Суши",
+   "Салаты",
+   "Супы",
+   "Корн доги",
+   "Напитки",
+   "Акции",
+];
+const LinkMenu: string[] = [
+   "pizza",
+   "sets",
+   "wok",
+   "rolls",
+   "sushi",
+   "salats",
+   "sups",
+   "corn",
+   "drinks",
+   "sale",
+];
+const navImg = [
+   PizzaImg,
+   SetsImg,
+   WOKImg,
+   RollsImg,
+   SushiImg,
+   SalatsImg,
+   SupsImg,
+   CornImg,
+   DrinkImg,
+   SaleImg,
+];
 
 const NavMenu: FC = (): JSX.Element => {
-   const [selectItemMenu, setSelectItemMenu] = useState<number | null>(null);
-
-   const navMenu: string[] = [
-      "Пицца",
-      "Сеты",
-      "WOK",
-      "Роллы",
-      "Суши",
-      "Салаты",
-      "Супы",
-      "Корн доги",
-      "Напитки",
-      "Акции",
-   ];
-   const LinkMenu: string[] = [
-      "pizza",
-      "sets",
-      "wok",
-      "rolls",
-      "sushi",
-      "salats",
-      "sups",
-      "corn",
-      "drinks",
-      "sale",
-   ];
-   const navImg = [
-      PizzaImg,
-      SetsImg,
-      WOKImg,
-      RollsImg,
-      SushiImg,
-      SalatsImg,
-      SupsImg,
-      CornImg,
-      DrinkImg,
-      SaleImg,
-   ];
+   const router = useRouter();
 
    return (
       <>
          <nav className={styles.nav}>
             <menu>
                <ul>
-                  {navMenu.map((item, index) => (
-                     <li key={index} onClick={() => setSelectItemMenu(index)}>
+                  {navMenu.map((item, index: number) => (
+                     <li key={index}>
                         <Link
                            href={`/${LinkMenu[index]}`}
                            className={
-                             selectItemMenu === index ? styles.active : ""
+                              router.asPath  === `/${LinkMenu[index]}` ? styles.active : ""
                            }
                         >
                            <Image
-                              // loader={myLoader}
                               className={styles.image_container}
                               src={navImg[index]}
                               alt=""

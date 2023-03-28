@@ -1,12 +1,10 @@
-import React from 'react'
-import styles from './RightSide.module.scss'
+import React from "react";
+import styles from "./RightSide.module.scss";
 
-type Props = {}
+type Props = {};
 
 const RightSide = (props: Props) => {
-  return (
-    <div className={styles.container}>RightSide</div>
-  )
-}
+   return <aside className={styles.container}>RightSide</aside>;
+};
 
-export default RightSide
+export default RightSide;

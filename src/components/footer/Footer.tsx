@@ -5,7 +5,7 @@ type Props = {}
 
 const Footer: FC = (props: Props):JSX.Element => {
   return (
-    <div className={styles.container}>Footer</div>
+    <footer className={styles.container}>Footer</footer>
   )
 }
 

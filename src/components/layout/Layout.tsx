@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
 import styles from "@/styles/Home.module.scss";
-import { FC } from "react";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import LeftSide from "@/components/leftSide/LeftSide";
@@ -14,6 +13,7 @@ export interface ILayoutProps {
 }
 
 const Layout = ({ children, title, description }: ILayoutProps) => {
+   
    return (
       <>
          <Head>

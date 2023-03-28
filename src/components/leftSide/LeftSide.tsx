@@ -1,13 +1,14 @@
 import Image from "next/image";
-import React from "react";
+import React, { FC } from "react";
 import styles from "./LeftSide.module.scss";
 import Logo from "../../../public/logo.png";
 import NavMenu from "./menu/NavMenu";
 import Link from "next/link";
 
-const LeftSide = () => {
+const LeftSide: FC = ():JSX.Element => {
+   
    return (
-      <div className={styles.container}>
+      <aside className={styles.container}>
          <Link href="/" title="На главную">
             <Image
                className={styles.image_container}
@@ -22,7 +23,7 @@ const LeftSide = () => {
             <p className={styles.text_logo}>Mineev</p>
          </Link>
          <NavMenu />
-      </div>
+      </aside>
    );
 };
 
