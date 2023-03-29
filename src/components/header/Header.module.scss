@@ -1,51 +1,77 @@
 .container {
-	display: flex;
-	justify-content: space-between;
-	max-width: 1170px;
-   margin-left: 320px;
-	padding: 16px 18px 8px 18px;
-	background: #E5E5E5;
-	.contact {
-		.tel {
+   display: flex;
+   justify-content: left;
+	position: relative;
+   max-width: 1170px;
+	height: 95px;
+   //margin-left: 320px;
+	border-bottom: 0.5px solid #A4ACAD;
+   background: #e5e5e5;
+   .contact {
+		border-right: 0.5px solid #A4ACAD;
+		margin-right: 30px;
+		padding: 16px 30px 8px 18px;
+      .tel {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         width: 138px;
+         p {
+            font-weight: 600;
+            color: black;
+         }
+         a {
+            color: #ff9846;
+         }
+         a:nth-child(3) {
+            margin-bottom: 5px;
+         }
+      }
+
+      .contact_Img {
+         display: flex;
+         img {
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+         }
+         p {
+            color: #a4acad;
+         }
+      }
+   }
+   .search {
+      display: flex;
+      justify-content: space-between;
+      .city {
+         display: flex;
+         flex-direction: column;
+			justify-content: center;
+         p:nth-child(2) {
+            font-weight: bold;
+            margin-top: 5px;
+				cursor: pointer;
+         }
+      }
+      .nav_search {
 			display: flex;
-			flex-direction: column;
 			align-items: center;
-			width: 138px;
-			p {
-				font-weight: 600;
-				color: black;
-			}
+			position: absolute;
+			top: 37px;
+			right: 40px;
 			a {
-				color: #FF9846;
-				;
+				margin-left: 10px;
+				color: #000;
+				&:hover {
+					color: #FF9846;
+				}
 			}
-			a:nth-child(3) {
-				margin-bottom: 5px;
-			}
-		}
-		
-		.contact_Img {
-			display: flex;
 			img {
-				width: 15px;
-				height: 15px;
-				margin-right: 5px;
+				width: 30px;
+				height: 30px;
+				margin-left: 70px;
+				cursor: pointer;
 			}
-			p {
-				color: #A4ACAD;
-			}
-		}
-	}
-	.search {
-		display: flex;
-		justify-content: space-between;
-		.city {
-			display: flex;
-			flex-direction: column;
-		}
-		.search {
-display: flex;
-justify-content: space-between;
-		}
-	}
+      }
+   }
 }

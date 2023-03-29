@@ -13,7 +13,6 @@ export interface ILayoutProps {
 }
 
 const Layout = ({ children, title, description }: ILayoutProps) => {
-   
    return (
       <>
          <Head>
@@ -42,13 +41,15 @@ const Layout = ({ children, title, description }: ILayoutProps) => {
             />
             <link rel="manifest" href="/site.webmanifest" />
          </Head>
-         <Header />
          <div className={styles.container}>
             <LeftSide />
-            {children}
+            <div className={styles.wrapper}>
+               <Header />
+               {children}
+               <Footer />
+            </div>
             <RightSide />
          </div>
-         <Footer />
       </>
    );
 };
