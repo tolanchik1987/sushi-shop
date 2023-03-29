@@ -1,16 +1,17 @@
 .container {
    display: flex;
    justify-content: left;
-	position: relative;
+   position: relative;
    max-width: 1170px;
-	height: 95px;
+   height: 95px;
+   font-size: 18px;
    //margin-left: 320px;
-	border-bottom: 0.5px solid #A4ACAD;
+   border-bottom: 0.5px solid #a4acad;
    background: #e5e5e5;
    .contact {
-		border-right: 0.5px solid #A4ACAD;
-		margin-right: 30px;
-		padding: 16px 30px 8px 18px;
+      border-right: 0.5px solid #a4acad;
+      margin-right: 30px;
+      padding: 16px 30px 8px 18px;
       .tel {
          display: flex;
          flex-direction: column;
@@ -46,32 +47,60 @@
       .city {
          display: flex;
          flex-direction: column;
-			justify-content: center;
+         justify-content: center;
          p:nth-child(2) {
             font-weight: bold;
             margin-top: 5px;
-				cursor: pointer;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            &:hover {
+               color: #ff9846;
+            }
          }
       }
       .nav_search {
-			display: flex;
-			align-items: center;
-			position: absolute;
-			top: 37px;
-			right: 40px;
-			a {
-				margin-left: 10px;
-				color: #000;
-				&:hover {
-					color: #FF9846;
-				}
-			}
-			img {
-				width: 30px;
-				height: 30px;
-				margin-left: 70px;
-				cursor: pointer;
-			}
+         display: flex;
+         align-items: center;
+         position: absolute;
+         top: 37px;
+         right: 40px;
+         a {
+            margin-left: 10px;
+            color: #000;
+            transition: all 0.3s ease;
+            &:hover {
+               color: #ff9846;
+            }
+         }
+         img {
+            width: 30px;
+            height: 30px;
+            margin-left: 70px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            &:hover {
+               transform: scale(1.2);
+            }
+         }
+         .search {
+            width: 0px;
+            height: 30px;
+            margin-left: 20px;
+            padding-left: 10px;
+            border-radius: 10px;
+            opacity: 0;
+            transition: all 0.8s ease;
+         }
+         .searchActive {
+            width: 180px;
+            height: 30px;
+            margin-left: 20px;
+            padding-left: 10px;
+            border-radius: 10px;
+            font-size: 18px;
+            opacity: 1;
+            transition: all 0.8s ease;
+         }
       }
    }
 }

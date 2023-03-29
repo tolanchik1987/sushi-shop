@@ -19,15 +19,15 @@ const Footer: FC = (props: Props): JSX.Element => {
             <p>Выберите удобный мессенджер для общения</p>
             <div className={styles.container_svg}>
                <div className={styles.whatsapp_svg}>
-                  <svg
+                  <Link href='https://whatsapp.com' target='_blank'><svg
                      width="50"
                      height="50"
                      viewBox="0 0 50 50"
                      fill="none"
-                     fill-opacity="0.5"
+                     fillOpacity="0.7"
                      xmlns="http://www.w3.org/2000/svg"
                   >
-                     <g clip-path="url(#clip0_7_1315)">
+                     <g clipPath="url(#clip0_7_1315)">
                         <path
                            d="M0 25C0 38.8071 11.1929 50 25 50C38.8071 50 50 38.8071 50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25Z"
                            fill="#1BD741"
@@ -47,18 +47,18 @@ const Footer: FC = (props: Props): JSX.Element => {
                            <rect width="50" height="50" fill="white" />
                         </clipPath>
                      </defs>
-                  </svg>
+                  </svg></Link>
                </div>
                <div className={styles.telegram_svg}>
-                  <svg
+               <Link href='https://web.telegram.org' target='_blank'><svg
                      width="50"
                      height="50"
                      viewBox="0 0 50 50"
                      fill="none"
-                     fill-opacity="0.5"
+                     fillOpacity="0.7"
                      xmlns="http://www.w3.org/2000/svg"
                   >
-                     <g clip-path="url(#clip0_7_1336)">
+                     <g clipPath="url(#clip0_7_1336)">
                         <path
                            d="M0 25C0 38.8071 11.1929 50 25 50C38.8071 50 50 38.8071 50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25Z"
                            fill="#61A8DE"
@@ -73,18 +73,18 @@ const Footer: FC = (props: Props): JSX.Element => {
                            <rect width="50" height="50" />
                         </clipPath>
                      </defs>
-                  </svg>
+                  </svg></Link>
                </div>
                <div className={styles.instagram_svg}>
-                  <svg
+               <Link href='https://instagram.com' target='_blank'><svg
                      width="50"
                      height="50"
                      viewBox="0 0 50 50"
                      fill="none"
-                     fill-opacity="0.5"
+                     fillOpacity="0.7"
                      xmlns="http://www.w3.org/2000/svg"
                   >
-                     <g clip-path="url(#clip0_77_147)">
+                     <g clipPath="url(#clip0_77_147)">
                         <path
                            d="M-0.216677 0.0267644C-4.76142 4.74649 -3.83126 9.76014 -3.83126 24.9914C-3.83126 37.64 -6.03857 50.3199 5.51365 53.3049C9.121 54.2325 41.0836 54.2325 44.6861 53.3001C49.4959 52.0593 53.4093 48.1588 53.9443 41.3575C54.019 40.4082 54.019 9.59149 53.9419 8.62297C53.3732 1.37835 48.9128 -2.79688 43.0354 -3.64252C41.6884 -3.83767 41.4185 -3.8955 34.5074 -3.90754C9.99332 -3.8955 4.61964 -4.98689 -0.216677 0.0267644Z"
                            fill="url(#paint0_linear_77_147)"
@@ -104,22 +104,22 @@ const Footer: FC = (props: Props): JSX.Element => {
                            y2="3.70001"
                            gradientUnits="userSpaceOnUse"
                         >
-                           <stop stop-color="#FFDD55" />
-                           <stop offset="0.5" stop-color="#FF543E" />
-                           <stop offset="1" stop-color="#C837AB" />
+                           <stop stopColor="#FFDD55" />
+                           <stop offset="0.5" stopColor="#FF543E" />
+                           <stop offset="1" stopColor="#C837AB" />
                         </linearGradient>
                         <clipPath id="clip0_77_147">
                            <rect width="50" height="50" rx="25" fill="white" />
                         </clipPath>
                      </defs>
-                  </svg>
+                  </svg></Link>
                </div>
             </div>
          </div>
          <div className={styles.contacts}>
-            <a href="tel:+996 705 188 955 ">Тел:+996 705 188 955 </a>
-            <a href="tel:+996 555 188 955 ">Тел:+996 555 188 955</a>
-            <a href="/contact">Адрес:Бакаева 126</a>
+            <Link href="tel:+996 705 188 955 ">Тел:+996 705 188 955 </Link>
+            <Link href="tel:+996 555 188 955 ">Тел:+996 555 188 955</Link>
+            <Link href="/contact">Адрес:Бакаева 126</Link>
          </div>
       </footer>
    );

@@ -1,10 +1,13 @@
 import Link from "next/link";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import styles from "./Header.module.scss";
 
 type Props = {};
 
 const Header: FC = (props: Props): JSX.Element => {
+   const [searchValue, setSearchValue] = useState("");
+   const [visibleSearch, setVisibleSearch] = useState(false)
+
    return (
       <header className={styles.container}>
          <div className={styles.contact}>
@@ -26,7 +29,16 @@ const Header: FC = (props: Props): JSX.Element => {
             <div className={styles.nav_search}>
                <Link href="/reviews">Отзывы</Link>
                <Link href="/dostavka">Доставка и оплата</Link>
-               <img src="../../../images/header/Search.png" alt="search" />
+               <img src="../../../images/header/Search.png" alt="search" onClick={() => setVisibleSearch(!visibleSearch)}/>
+               <input
+                  className={visibleSearch ? styles.searchActive : styles.search}
+                  type="search"
+                  placeholder="поиск"
+                  value={searchValue}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                     setSearchValue(e.target.value)
+                  }
+               />
             </div>
          </div>
       </header>
