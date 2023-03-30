@@ -11,7 +11,7 @@
       min-height: calc(100vh - 247px);
       background: #f2f2f2;
       h1 {
-         font-size: 44px;
+         font-size: 2.4444rem;
          font-weight: bold;
       }
       .container_swiper {
@@ -23,10 +23,10 @@
             .btn_slider {
                width: 277px;
                height: 60px;
-               background: #F46D40;
+               background: #f46d40;
                color: #f2f2f2;
                border-radius: 5px;
-               font-size: 34px;
+               font-size: 1.8888rem;
                font-weight: 500;
                position: absolute;
                top: 388px;
@@ -37,6 +37,105 @@
                   box-shadow: 2px 2px 8px black;
                }
             }
+         }
+      }
+      .top {
+         margin: 50px auto;
+         .container_grid {
+            display: grid;
+            grid-template-columns: 450px repeat(2, 224px);
+            grid-template-rows: repeat(2, 200px);
+            gap: 28px 28px;
+            grid-auto-flow: row;
+            grid-template-areas:
+               "chiken ugor corn"
+               "pizza sale sale";
+            .chiken {
+               grid-area: chiken;
+               position: relative;
+               h3 {
+                  font-weight: 500;
+                  font-size: 24px;
+                  color: #f2f2f2;
+                  position: absolute;
+                  left: 10px;
+                  bottom: 10px;
+               }
+            }
+            .ugor {
+               grid-area: ugor;
+               position: relative;
+               h3 {
+                  font-weight: 500;
+                  font-size: 24px;
+                  color: #f2f2f2;
+                  position: absolute;
+                  left: 10px;
+                  bottom: 10px;
+               }
+            }
+            .corn {
+               grid-area: corn;
+               position: relative;
+               h3 {
+                  font-weight: 500;
+                  font-size: 24px;
+                  color: #f2f2f2;
+                  position: absolute;
+                  left: 10px;
+                  bottom: 10px;
+               }
+            }
+            .pizza {
+               grid-area: pizza;
+               position: relative;
+               h3 {
+                  font-weight: 500;
+                  font-size: 24px;
+                  color: #f2f2f2;
+                  position: absolute;
+                  left: 10px;
+                  bottom: 10px;
+               }
+            }
+            .sale {
+               grid-area: sale;
+               position: relative;
+               h3 {
+                  font-weight: 500;
+                  font-size: 24px;
+                  color: #f2f2f2;
+                  position: absolute;
+                  left: 10px;
+                  bottom: 10px;
+               }
+            }
+         }
+      }
+      .middle {
+         display: flex;
+         position: relative;
+         width: 1170px;
+         // margin: 0 auto;
+         .btn_prev {
+            position: absolute;
+            left: 0;
+            top: 230px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: black;
+            color: aliceblue;
+         }
+         .btn_next {
+            position: absolute;
+            right: 0;
+            top: 230px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: black;
+            color: aliceblue;
          }
       }
    }

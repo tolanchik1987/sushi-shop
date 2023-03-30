@@ -37,6 +37,10 @@
          border-radius: 0px 0px 5px 5px;
          margin-bottom: 20px;
          color: #F2F2F2;
+         transition: all 0.3s ease;
+         &:hover {
+            box-shadow: 2px 2px 8px black;
+         }
       }
       .map {
          margin-bottom: 38px;

@@ -6,7 +6,8 @@ type Props = {};
 
 const Header: FC = (props: Props): JSX.Element => {
    const [searchValue, setSearchValue] = useState("");
-   const [visibleSearch, setVisibleSearch] = useState(false)
+   const [visibleSearch, setVisibleSearch] = useState(false);
+   const [placeholderValue, setPlaceholderValue] = useState("поиск");
 
    return (
       <header className={styles.container}>
@@ -29,15 +30,28 @@ const Header: FC = (props: Props): JSX.Element => {
             <div className={styles.nav_search}>
                <Link href="/reviews">Отзывы</Link>
                <Link href="/dostavka">Доставка и оплата</Link>
-               <img src="../../../images/header/Search.png" alt="search" onClick={() => setVisibleSearch(!visibleSearch)}/>
+               <img
+                  src="../../../images/header/Search.png"
+                  alt="search"
+                  onClick={() => setVisibleSearch(!visibleSearch)}
+               />
                <input
-                  className={visibleSearch ? styles.searchActive : styles.search}
-                  type="search"
-                  placeholder="поиск"
-                  value={searchValue}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                     setSearchValue(e.target.value)
+                  className={
+                     visibleSearch
+                        ? styles.searchInputActive
+                        : styles.searchInput
                   }
+                  type="search"
+                  placeholder={placeholderValue}
+                  value={searchValue}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                     setSearchValue(e.target.value);
+                  }}
+                  onFocus={() => setPlaceholderValue("")}
+                  onBlur={() => {
+                     setPlaceholderValue("поиск");
+                     setVisibleSearch(!visibleSearch);
+                  }}
                />
             </div>
          </div>
