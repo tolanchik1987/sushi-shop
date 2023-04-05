@@ -8,17 +8,31 @@
          display: block;
          margin: 10px auto;
       }
-      .text_logo {
-         width: 210px;
-         font-size: 30px;
-         text-align: center;
-         text-transform: uppercase;
+      .ul_text_logo {
+         display: flex;
          margin: 0 auto;
          padding-bottom: 30px;
          margin-bottom: 30px;
          border-bottom: 0.5px solid #A4ACAD;
+         .li_text_logo {
+            font-weight: bold;
+         font-size: 30px;
+         padding-left: 7px;
+         text-transform: uppercase;
+         
          color: #000000;
+         }
       }
+      // .text_logo {
+      //    width: 210px;
+      //    font-size: 30px;
+      //    text-align: center;
+      //    text-transform: uppercase;
+      //    margin: 0 auto;
+      
+      //    // border-bottom: 0.5px solid #A4ACAD;
+      //    color: #000000;
+      //}
    }
 
 }

@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect, useRef } from "react";
 import styles from "./NavMenu.module.scss";
 import PizzaImg from "../../../../public/images/home/menu/1.png";
 import SetsImg from "../../../../public/images/home/menu/2.png";
@@ -14,6 +14,27 @@ import Image from "next/image";
 import Link from "next/link";
 import cn from "classnames";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
+
+const containerMotion = {
+   hidden: { opacity: 1 },
+   visible: {
+      opacity: 1,
+      // scale: 1,
+      transition: {
+         delayChildren: 0.2,
+         staggerChildren: 0.1,
+      },
+   },
+};
+
+const itemsMotion = {
+   hidden: { x: -20, opacity: 0 },
+   visible: {
+      x: 0,
+      opacity: 1,
+   },
+};
 
 const navMenu: string[] = [
    "Пицца",
@@ -53,34 +74,83 @@ const navImg = [
 ];
 
 const NavMenu: FC = (): JSX.Element => {
+   const isMounted = useRef(false);
    const router = useRouter();
+
+   useEffect(() => {
+      isMounted.current = true;
+   }, []);
 
    return (
       <>
          <nav className={styles.nav}>
             <menu>
-               <ul>
-                  {navMenu.map((item, index: number) => (
-                     <li key={index}>
-                        <Link
-                           href={`/${LinkMenu[index]}`}
-                           className={
-                              router.asPath  === `/${LinkMenu[index]}` ? styles.active : ""
-                           }
+               {router.asPath === "/" ? (
+                  <motion.ul
+                     className="container"
+                     variants={containerMotion}
+                     initial="hidden"
+                     animate="visible"
+                  >
+                     {navMenu.map((item, index: number) => (
+                        <motion.li
+                           key={index}
+                           variants={itemsMotion}
+                           whileHover={{ scale: 1.2 }}
+                           whileTap={{ scale: 1.1 }}
                         >
-                           <Image
-                              className={styles.image_container}
-                              src={navImg[index]}
-                              alt=""
-                              width={30}
-                              height={30}
-                              quality={100}
-                           />
-                           {item}
-                        </Link>
-                     </li>
-                  ))}
-               </ul>
+                           <Link
+                              href={`/${LinkMenu[index]}`}
+                              className={
+                                 router.asPath === `/${LinkMenu[index]}`
+                                    ? styles.active
+                                    : ""
+                              }
+                           >
+                              <Image
+                                 className={styles.image_container}
+                                 src={navImg[index]}
+                                 alt=""
+                                 width={30}
+                                 height={30}
+                                 quality={100}
+                              />
+                              {item}
+                           </Link>
+                        </motion.li>
+                     ))}
+                  </motion.ul>
+               ) : (
+                  <ul className="container">
+                     {navMenu.map((item, index: number) => (
+                        <motion.li
+                           key={index}
+                           variants={itemsMotion}
+                           whileHover={{ scale: 1.2 }}
+                           whileTap={{ scale: 1.1 }}
+                        >
+                           <Link
+                              href={`/${LinkMenu[index]}`}
+                              className={
+                                 router.asPath === `/${LinkMenu[index]}`
+                                    ? styles.active
+                                    : ""
+                              }
+                           >
+                              <Image
+                                 className={styles.image_container}
+                                 src={navImg[index]}
+                                 alt=""
+                                 width={30}
+                                 height={30}
+                                 quality={100}
+                              />
+                              {item}
+                           </Link>
+                        </motion.li>
+                     ))}
+                  </ul>
+               )}
             </menu>
          </nav>
       </>

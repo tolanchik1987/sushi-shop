@@ -5,40 +5,39 @@ import cn from "classnames";
 import Layout from "@/components/layout/Layout";
 import Image from "next/image";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { motion } from "framer-motion";
 
-import Img001 from "/public/images/home/swiper/001.png";
-import Img002 from "/public/images/home/swiper/002.png";
-import Img003 from "/public/images/home/swiper/003.png";
-import Img004 from "/public/images/home/swiper/004.png";
-import Img005 from "/public/images/home/swiper/005.png";
 import ImgTop1 from "/public/images/home/top/001.png";
 import ImgTop2 from "/public/images/home/top/002.png";
 import ImgTop3 from "/public/images/home/top/003.png";
 import ImgTop4 from "/public/images/home/top/004.png";
 import ImgTop5 from "/public/images/home/top/005.png";
-
-import {
-   Autoplay,
-   Navigation,
-   Pagination,
-   Scrollbar,
-   A11y,
-   EffectCoverflow,
-} from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperTop from "@/components/swiperTop/SwiperTop";
 // Import Swiper styles
-import "swiper/scss";
-import "swiper/scss/navigation";
-import "swiper/scss/pagination";
-import "swiper/scss/scrollbar";
-import "swiper/scss/autoplay";
 import SwiperMiddle from "@/components/swiperMidle/SwiperMiddle";
-
 
 const RobotoSlabFont = Roboto_Slab({ subsets: ["latin"] });
 
-const Home: FC = (): JSX.Element => {
+const containerMotion = {
+   hidden: { opacity: 0 },
+   visible: {
+      opacity: 1,
+      transition: {
+         delayChildren: 0.2,
+         staggerChildren: 0.1,
+      },
+   },
+};
 
+const textMotion = {
+   hidden: { opacity: 0 },
+   visible: {
+      opacity: 1,
+   },
+};
+const h1Array = ["М", "А", "Г", "А", "З", "И", "Н", " ", "С", "У", "Ш", "И"];
+
+const Home: FC = (): JSX.Element => {
    return (
       <>
          <Layout
@@ -46,103 +45,36 @@ const Home: FC = (): JSX.Element => {
             description="Магазин суши и роллов в городе Тольятти по лучшим ценам!"
          >
             <main className={cn(styles.main, RobotoSlabFont.className)}>
-               <h1 className={styles.h1}>МАГАЗИН СУШИ</h1>
-               <div className={styles.container_swiper}>
-                  <Swiper
-                     // install Swiper modules
-                     modules={[
-                        Autoplay,
-                        // Navigation,
-                        Pagination,
-                        // Scrollbar,
-                        A11y,
-                        EffectCoverflow,
-                     ]}
-                     spaceBetween={10}
-                     slidesPerView={1}
-                     autoplay={{
-                        delay: 2500,
-                        disableOnInteraction: false,
-                     }}
-                     loop={true}
-                     speed={1000}
-                     effect="coverflow"
-                     // navigation={{ nextEl: "none", prevEl: "none" }}
-                     pagination={{ clickable: true }}
-                     // scrollbar={{ draggable: true }}
-                     // onSwiper={(swiper) => console.log(swiper)}
-                     // onSlideChange={() => console.log("slide change")}
-                  >
-                     <SwiperSlide className={styles.SwiperSlide}>
-                        <Image
-                           className={styles.image_container}
-                           src={Img001}
-                           alt="001"
-                           width={950}
-                           height={470}
-                           quality={100}
-                           blurDataURL="@/public/images/home/001.png"
-                           placeholder="blur"
-                        />
-                        <button className={styles.btn_slider}>Хочу!</button>
-                     </SwiperSlide>
-                     <SwiperSlide className={styles.SwiperSlide}>
-                        <Image
-                           className={styles.image_container}
-                           src={Img002}
-                           alt="002"
-                           width={950}
-                           height={470}
-                           quality={100}
-                           blurDataURL="@/public/images/home/002.png"
-                           placeholder="blur"
-                        />
-                        <button className={styles.btn_slider}>Хочу!</button>
-                     </SwiperSlide>
-                     <SwiperSlide className={styles.SwiperSlide}>
-                        <Image
-                           className={styles.image_container}
-                           src={Img003}
-                           alt="003"
-                           width={950}
-                           height={470}
-                           quality={100}
-                           blurDataURL="@/public/images/home/003.png"
-                           placeholder="blur"
-                        />
-                        <button className={styles.btn_slider}>Хочу!</button>
-                     </SwiperSlide>
-                     <SwiperSlide className={styles.SwiperSlide}>
-                        <Image
-                           className={styles.image_container}
-                           src={Img004}
-                           alt="004"
-                           width={950}
-                           height={470}
-                           quality={100}
-                           blurDataURL="@/public/images/home/004.png"
-                           placeholder="blur"
-                        />
-                        <button className={styles.btn_slider}>Хочу!</button>
-                     </SwiperSlide>
-                     <SwiperSlide className={styles.SwiperSlide}>
-                        <Image
-                           className={styles.image_container}
-                           src={Img005}
-                           alt="005"
-                           width={950}
-                           height={470}
-                           quality={100}
-                           blurDataURL="@/public/images/home/005.png"
-                           placeholder="blur"
-                        />
-                        <button className={styles.btn_slider}>Хочу!</button>
-                     </SwiperSlide>
-                  </Swiper>
-               </div>
+               <motion.h1
+                  variants={containerMotion}
+                  initial="hidden"
+                  animate="visible"
+                  className={styles.h1}
+               >
+                  {h1Array.map((item, index) => (
+                     <motion.span
+                        variants={textMotion}
+                        className={styles.itemH1}
+                        key={index}
+                     >
+                        {item}
+                     </motion.span>
+                  ))}
+               </motion.h1>
+               <SwiperTop />
                <section className={styles.top}>
                   <div className={styles.container_grid}>
-                     <div className={styles.chiken}>
+                     <motion.div
+                        className={styles.chiken}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                           duration: 0.3,
+                           delay: 0.2,
+                           opacity: { duration: 1 },
+                           ease: "linear",
+                        }}
+                     >
                         <Image
                            className={styles.image_container}
                            src={ImgTop1}
@@ -154,8 +86,18 @@ const Home: FC = (): JSX.Element => {
                            placeholder="blur"
                         />
                         <h3>Чикен</h3>
-                     </div>
-                     <div className={styles.ugor}>
+                     </motion.div>
+                     <motion.div
+                        className={styles.ugor}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                           duration: 0.3,
+                           delay: 0.3,
+                           opacity: { duration: 1 },
+                           ease: "linear",
+                        }}
+                     >
                         <Image
                            className={styles.image_container}
                            src={ImgTop2}
@@ -163,12 +105,22 @@ const Home: FC = (): JSX.Element => {
                            width={220}
                            height={200}
                            quality={100}
-                           blurDataURL="@/public/images/home/top/001.png"
+                           blurDataURL="@/public/images/home/top/002.png"
                            placeholder="blur"
                         />
                         <h3>С угрем</h3>
-                     </div>
-                     <div className={styles.corn}>
+                     </motion.div>
+                     <motion.div
+                        className={styles.corn}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                           duration: 0.3,
+                           delay: 0.4,
+                           opacity: { duration: 1 },
+                           ease: "linear",
+                        }}
+                     >
                         <Image
                            className={styles.image_container}
                            src={ImgTop3}
@@ -176,12 +128,22 @@ const Home: FC = (): JSX.Element => {
                            width={220}
                            height={200}
                            quality={100}
-                           blurDataURL="@/public/images/home/top/001.png"
+                           blurDataURL="@/public/images/home/top/003.png"
                            placeholder="blur"
                         />
                         <h3>Корн дог</h3>
-                     </div>
-                     <div className={styles.pizza}>
+                     </motion.div>
+                     <motion.div
+                        className={styles.pizza}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                           duration: 0.3,
+                           delay: 0.5,
+                           opacity: { duration: 1 },
+                           ease: "linear",
+                        }}
+                     >
                         <Image
                            className={styles.image_container}
                            src={ImgTop4}
@@ -189,12 +151,22 @@ const Home: FC = (): JSX.Element => {
                            width={455}
                            height={200}
                            quality={100}
-                           blurDataURL="@/public/images/home/top/001.png"
+                           blurDataURL="@/public/images/home/top/004.png"
                            placeholder="blur"
                         />
                         <h3>Пицца</h3>
-                     </div>
-                     <div className={styles.sale}>
+                     </motion.div>
+                     <motion.div
+                        className={styles.sale}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                           duration: 0.3,
+                           delay: 0.6,
+                           opacity: { duration: 1 },
+                           ease: "linear",
+                        }}
+                     >
                         <Image
                            className={styles.image_container}
                            src={ImgTop5}
@@ -202,17 +174,21 @@ const Home: FC = (): JSX.Element => {
                            width={470}
                            height={200}
                            quality={100}
-                           blurDataURL="@/public/images/home/top/001.png"
+                           blurDataURL="@/public/images/home/top/005.png"
                            placeholder="blur"
                         />
                         <h3>Акции</h3>
-                     </div>
+                     </motion.div>
                   </div>
                </section>
                <section className={styles.middle}>
-                  <button className={styles.btn_prev}><AiOutlineArrowLeft /></button>
+                  <button className={styles.btn_prev}>
+                     <AiOutlineArrowLeft className={styles.prevIcon} />
+                  </button>
                   <SwiperMiddle />
-                  <button className={styles.btn_next}><AiOutlineArrowRight /></button>
+                  <button className={styles.btn_next}>
+                     <AiOutlineArrowRight className={styles.nextIcon} />
+                  </button>
                </section>
                <section className={styles.bottom}></section>
             </main>

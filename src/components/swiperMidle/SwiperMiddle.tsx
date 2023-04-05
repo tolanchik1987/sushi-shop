@@ -18,12 +18,13 @@ import "swiper/scss/scrollbar";
 import "swiper/scss/autoplay";
 import styles from "./SwiperMiddle.module.scss";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 type Props = {};
 
 const SwiperMiddle = (props: Props) => {
-//    const swiper = useSwiper();
-// console.log('swiper',swiper)
+   //    const swiper = useSwiper();
+   // console.log('swiper',swiper)
    return (
       <>
          <Swiper
@@ -31,14 +32,20 @@ const SwiperMiddle = (props: Props) => {
             modules={[Navigation, A11y, Autoplay]}
             slidesPerView={3}
             spaceBetween={0}
-            autoplay={{
-               delay: 3000,
-               disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //    delay: 3000,
+            //    disableOnInteraction: false,
+            // }}
             navigation
          >
             <SwiperSlide>
-               <div className={styles.containerSlide}>
+               <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 1.5 }}
+                  viewport={{ once: true , amount: 0.2}}
+                  className={styles.containerSlide}
+               >
                   <Image
                      className={styles.image_container}
                      src={ImgMiddle1}
@@ -55,107 +62,129 @@ const SwiperMiddle = (props: Props) => {
                      <p>1500 СОМ</p>
                      <button>Хочу!</button>
                   </div>
-               </div>
+               </motion.div>
             </SwiperSlide>
             <SwiperSlide>
-               <div className={styles.containerSlide}>
-               <Image
-                  className={styles.image_container}
-                  src={ImgMiddle2}
-                  alt="002"
-                  width={253}
-                  height={203}
-                  quality={100}
-                  blurDataURL="@/public/images/home/middle/002.png"
-                  placeholder="blur"
-               />
-               <p>Саломон сет</p>
+               <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 1.5, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className={styles.containerSlide}
+               >
+                  <Image
+                     className={styles.image_container}
+                     src={ImgMiddle2}
+                     alt="002"
+                     width={253}
+                     height={203}
+                     quality={100}
+                     blurDataURL="@/public/images/home/middle/002.png"
+                     placeholder="blur"
+                  />
+                  <p>Саломон сет</p>
                   <p>1050 грамм, 30 кусочков</p>
                   <div className={styles.containerPrice}>
                      <p>1500 СОМ</p>
                      <button>Хочу!</button>
                   </div>
-               </div>
+               </motion.div>
             </SwiperSlide>
             <SwiperSlide>
-            <div className={styles.containerSlide}>
-               <Image
-                  className={styles.image_container}
-                  src={ImgMiddle3}
-                  alt="003"
-                  width={253}
-                  height={203}
-                  quality={100}
-                  blurDataURL="@/public/images/home/middle/003.png"
-                  placeholder="blur"
-               />
-               <p>Саломон сет</p>
+               <motion.div
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ duration: 1.5, delay: 0.4}}
+               viewport={{ once: true }} className={styles.containerSlide}>
+                  <Image
+                     className={styles.image_container}
+                     src={ImgMiddle3}
+                     alt="003"
+                     width={253}
+                     height={203}
+                     quality={100}
+                     blurDataURL="@/public/images/home/middle/003.png"
+                     placeholder="blur"
+                  />
+                  <p>Саломон сет</p>
                   <p>1050 грамм, 30 кусочков</p>
                   <div className={styles.containerPrice}>
                      <p>1500 СОМ</p>
                      <button>Хочу!</button>
                   </div>
-               </div>
+               </motion.div>
             </SwiperSlide>
             <SwiperSlide>
-            <div className={styles.containerSlide}>
-               <Image
-                  className={styles.image_container}
-                  src={ImgMiddle2}
-                  alt="004"
-                  width={253}
-                  height={203}
-                  quality={100}
-                  blurDataURL="@/public/images/home/middle/002.png"
-                  placeholder="blur"
-               />
-               <p>Саломон сет</p>
+               <motion.div
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ duration: 1.5}}
+               viewport={{ once: true }} className={styles.containerSlide}>
+                  <Image
+                     className={styles.image_container}
+                     src={ImgMiddle2}
+                     alt="004"
+                     width={253}
+                     height={203}
+                     quality={100}
+                     blurDataURL="@/public/images/home/middle/002.png"
+                     placeholder="blur"
+                  />
+                  <p>Саломон сет</p>
                   <p>1050 грамм, 30 кусочков</p>
                   <div className={styles.containerPrice}>
                      <p>1500 СОМ</p>
                      <button>Хочу!</button>
                   </div>
-               </div>
+               </motion.div>
             </SwiperSlide>
             <SwiperSlide>
-            <div className={styles.containerSlide}>
-               <Image
-                  className={styles.image_container}
-                  src={ImgMiddle1}
-                  alt="005"
-                  width={253}
-                  height={203}
-                  quality={100}
-                  blurDataURL="@/public/images/home/middle/001.png"
-                  placeholder="blur"
-               />
-               <p>Саломон сет</p>
+               <motion.div
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ duration: 1.5}}
+               viewport={{ once: true }} className={styles.containerSlide}>
+                  <Image
+                     className={styles.image_container}
+                     src={ImgMiddle1}
+                     alt="005"
+                     width={253}
+                     height={203}
+                     quality={100}
+                     blurDataURL="@/public/images/home/middle/001.png"
+                     placeholder="blur"
+                  />
+                  <p>Саломон сет</p>
                   <p>1050 грамм, 30 кусочков</p>
                   <div className={styles.containerPrice}>
                      <p>1500 СОМ</p>
                      <button>Хочу!</button>
                   </div>
-               </div>
+               </motion.div>
             </SwiperSlide>
             <SwiperSlide>
-            <div className={styles.containerSlide}>
-               <Image
-                  className={styles.image_container}
-                  src={ImgMiddle3}
-                  alt="006"
-                  width={253}
-                  height={203}
-                  quality={100}
-                  blurDataURL="@/public/images/home/middle/003.png"
-                  placeholder="blur"
-               />
-               <p>Саломон сет</p>
+               <motion.div
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ duration: 1.5}}
+               viewport={{ once: true }} className={styles.containerSlide}>
+                  <Image
+                     className={styles.image_container}
+                     src={ImgMiddle3}
+                     alt="006"
+                     width={253}
+                     height={203}
+                     quality={100}
+                     blurDataURL="@/public/images/home/middle/003.png"
+                     placeholder="blur"
+                  />
+                  <p>Саломон сет</p>
                   <p>1050 грамм, 30 кусочков</p>
                   <div className={styles.containerPrice}>
                      <p>1500 СОМ</p>
                      <button>Хочу!</button>
                   </div>
-               </div>
+               </motion.div>
             </SwiperSlide>
          </Swiper>
       </>

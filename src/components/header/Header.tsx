@@ -1,13 +1,16 @@
 import Link from "next/link";
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.scss";
+import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
-type Props = {};
+type HeaderProps = {};
 
-const Header: FC = (props: Props): JSX.Element => {
+const Header = (props: HeaderProps): JSX.Element => {
    const [searchValue, setSearchValue] = useState("");
    const [visibleSearch, setVisibleSearch] = useState(false);
    const [placeholderValue, setPlaceholderValue] = useState("поиск");
+   const router = useRouter();
 
    return (
       <header className={styles.container}>
@@ -23,13 +26,46 @@ const Header: FC = (props: Props): JSX.Element => {
             </div>
          </div>
          <div className={styles.search}>
-            <div className={styles.city}>
-               <p>Город:</p>
-               <p>Бишкек</p>
-            </div>
+            {router.asPath == "/" ? (
+               <div className={styles.city}>
+                  <motion.p
+                     initial={{ opacity: 0 }}
+                     animate={{ opacity: 1 }}
+                     transition={{ duration: 1 }}
+                  >
+                     Город:
+                  </motion.p>
+                  <motion.p
+                     initial={{ opacity: 0 }}
+                     animate={{ opacity: 1 }}
+                     transition={{ duration: 1 }}
+                  >
+                     Бишкек
+                  </motion.p>
+               </div>
+            ) : (
+               <div className={styles.city}>
+                  <p>Город:</p>
+                  <p>Бишкек</p>
+               </div>
+            )}
             <div className={styles.nav_search}>
-               <Link href="/reviews">Отзывы</Link>
-               <Link href="/dostavka">Доставка и оплата</Link>
+               {router.asPath == "/" ? (
+                  <motion.span
+                     initial={{ opacity: 0 }}
+                     animate={{ opacity: 1 }}
+                     transition={{ duration: 1 }}
+                  >
+                     <Link href="/reviews">Отзывы</Link>
+                     <Link href="/dostavka">Доставка и оплата</Link>
+                  </motion.span>
+               ) : (
+                  <span>
+                     <Link href="/reviews">Отзывы</Link>
+                     <Link href="/dostavka">Доставка и оплата</Link>
+                  </span>
+               )}
+
                <img
                   src="../../../images/header/Search.png"
                   alt="search"

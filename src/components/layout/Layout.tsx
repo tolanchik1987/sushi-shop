@@ -5,6 +5,7 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import LeftSide from "@/components/leftSide/LeftSide";
 import RightSide from "@/components/rightSide/RightSide";
+// import { useSpring, animated } from '@react-spring/web';
 
 export interface ILayoutProps {
    children: ReactNode;
@@ -13,6 +14,7 @@ export interface ILayoutProps {
 }
 
 const Layout = ({ children, title, description }: ILayoutProps) => {
+
    return (
       <>
          <Head>
@@ -45,7 +47,9 @@ const Layout = ({ children, title, description }: ILayoutProps) => {
             <LeftSide />
             <div className={styles.wrapper}>
                <Header />
-               {children}
+               <div>
+                  {children}
+               </div>
                <Footer />
             </div>
             <RightSide />
