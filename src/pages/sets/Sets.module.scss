@@ -1,0 +1,16 @@
+.main {
+   display: flex;
+   flex-direction: column;
+   padding: 0 6.875rem;
+   // margin: 0 auto;
+   min-width: 1170px;
+   max-width: 1170px;
+   min-height: calc(100vh - 247px);
+   background: #9ff1e4;
+   h2 {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin: 30px 0;
+   }
+}

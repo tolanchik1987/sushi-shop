@@ -55,7 +55,7 @@
             .chiken {
                grid-area: chiken;
                border-radius: 5px;
-               transition: all .3s ease;
+               transition: all 0.3s ease;
                position: relative;
                cursor: pointer;
                h3 {
@@ -73,7 +73,7 @@
             .ugor {
                grid-area: ugor;
                border-radius: 5px;
-               transition: all .3s ease;
+               transition: all 0.3s ease;
                position: relative;
                cursor: pointer;
                h3 {
@@ -91,7 +91,7 @@
             .corn {
                grid-area: corn;
                border-radius: 5px;
-               transition: all .3s ease;
+               transition: all 0.3s ease;
                position: relative;
                cursor: pointer;
                h3 {
@@ -109,7 +109,7 @@
             .pizza {
                grid-area: pizza;
                border-radius: 5px;
-               transition: all .3s ease;
+               transition: all 0.3s ease;
                position: relative;
                cursor: pointer;
                h3 {
@@ -127,7 +127,7 @@
             .sale {
                grid-area: sale;
                border-radius: 5px;
-               transition: all .3s ease;
+               transition: all 0.3s ease;
                position: relative;
                cursor: pointer;
                h3 {
@@ -175,6 +175,114 @@
             background: black;
             color: aliceblue;
             .nextIcon {
+               width: 30px;
+               height: 30px;
+            }
+         }
+      }
+      .bottom {
+         display: flex;
+         flex-direction: column;
+         align-items: stretch;
+         position: relative;
+         width: 950px;
+         margin: 0 auto;
+         margin-bottom: 60px;
+         font-weight: 400;
+         font-size: 18px;
+         line-height: 18px;
+         color: #a4acad;
+         h3 {
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 10px;
+         }
+         .bottomList {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            li:nth-child(2) {
+               margin-top: 10px;
+            }
+            li {
+               list-style: disc;
+               margin-left: 30px;
+            }
+         }
+         p:nth-child(4) {
+            display: block;
+            position: relative;
+            height: 108px;
+         }
+         p:nth-child(4):after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(
+               to bottom,
+               transparent 0%,
+               rgba(242, 242, 242, 1) 80%
+            );
+         }
+         .btnMore {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: -20px;
+            left: 45%;
+            font-size: 24px;
+            color: #f46d40;
+            margin: 0 auto;
+            cursor: pointer;
+            .arrowIcon {
+               width: 30px;
+               height: 30px;
+            }
+         }
+      }
+      .activeBottom {
+         display: flex;
+         flex-direction: column;
+         align-items: stretch;
+         position: relative;
+         width: 950px;
+         height: 500px;
+         margin: 0 auto;
+         font-weight: 400;
+         font-size: 18px;
+         line-height: 18px;
+         color: #0c0c0c;
+         h3 {
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 10px;
+         }
+         .bottomList {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            li:nth-child(2) {
+               margin-top: 10px;
+            }
+            li {
+               list-style: disc;
+               margin-left: 30px;
+            }
+         }
+         .btnMore {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 20px;
+            left: 45%;
+            font-size: 24px;
+            color: #f46d40;
+            margin: 0 auto;
+            cursor: pointer;
+            .arrowIcon {
                width: 30px;
                height: 30px;
             }

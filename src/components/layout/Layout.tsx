@@ -5,6 +5,7 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import LeftSide from "@/components/leftSide/LeftSide";
 import RightSide from "@/components/rightSide/RightSide";
+import { motion, AnimatePresence } from "framer-motion";
 // import { useSpring, animated } from '@react-spring/web';
 
 export interface ILayoutProps {
@@ -14,7 +15,6 @@ export interface ILayoutProps {
 }
 
 const Layout = ({ children, title, description }: ILayoutProps) => {
-
    return (
       <>
          <Head>
@@ -43,13 +43,12 @@ const Layout = ({ children, title, description }: ILayoutProps) => {
             />
             <link rel="manifest" href="/site.webmanifest" />
          </Head>
+
          <div className={styles.container}>
             <LeftSide />
             <div className={styles.wrapper}>
                <Header />
-               <div>
-                  {children}
-               </div>
+               <div>{children}</div>
                <Footer />
             </div>
             <RightSide />
