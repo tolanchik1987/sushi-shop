@@ -208,7 +208,7 @@ const Home: FC = (): JSX.Element => {
                      initial={{ opacity: 0, y: 30 }}
                      whileInView={{ opacity: 1, y: 0 }}
                      transition={{ duration: 1.5 }}
-                     viewport={{ once: true , amount: 0.2}}
+                     viewport={{ once: true, amount: 0.2 }}
                   >
                      <h3>Заказать суши в Бишкеке</h3>
                      <p>

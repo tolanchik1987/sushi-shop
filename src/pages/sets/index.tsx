@@ -1,9 +1,27 @@
 import styles from "./Sets.module.scss";
 import { motion, AnimatePresence } from "framer-motion";
-import { FC } from "react";
+import SetsImg from "../../../public/images/home/menu/2.png";
+import { FC, useState } from "react";
 import Layout from "@/components/layout/Layout";
+import Image from "next/image";
+import { BiChevronDown, BiChevronUp } from "react-icons/bi";
+import { spawn } from "child_process";
+import CardItem from "@/components/cardItem/CardItem";
+
+const sortList: string[] = [
+   "По умолчанию",
+   "Название",
+   "Сначала дешевле",
+   "Сначала дороже",
+   "Количество кусочков",
+   "Вес",
+];
 
 const Sets: FC = (): JSX.Element => {
+   const [activeList, setActiveList] = useState(false); // Открытие и закрытие сортировки
+   const [activeSortIndex, setActiveSortIndex] = useState(0); // Активный индекс сортировки
+   const [activeBottom, setAcitiveBottom] = useState(false); // Секция в низу скрыть/показать
+
    return (
       <>
          <Layout title="Сеты">
@@ -16,51 +34,113 @@ const Sets: FC = (): JSX.Element => {
                   exit={{ opacity: 0, y: 30, borderRadius: "50%" }}
                   transition={{ delay: 0.2, duration: 0.3 }}
                >
-                  <h2 className={styles.h2}>Сеты</h2>
-                  <p>
-                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                     Officia iure a nesciunt quaerat nihil nulla vero quidem
-                     molestiae minus, obcaecati quis. Quis vero consequuntur
-                     quae exercitationem laborum atque, modi ipsa. Et sunt
-                     quisquam molestias non eos facilis ipsam id ab officiis
-                     laboriosam expedita facere quo modi voluptatem eligendi
-                     nesciunt laudantium, culpa earum! Autem quibusdam eveniet
-                     repellat eos mollitia, atque deserunt. Optio natus quo
-                     eveniet accusantium modi officiis, qui expedita provident,
-                     reprehenderit praesentium unde? Quam numquam nihil
-                     asperiores aliquam est hic ullam totam veritatis odit
-                     voluptates libero, possimus accusamus dolorem magni? Earum
-                     repudiandae molestias vero unde excepturi sed deleniti qui
-                     tempora tenetur minima eligendi eos, blanditiis placeat
-                     voluptates totam ipsum iure explicabo sunt eum consequatur
-                     neque! Ipsum distinctio quo repellendus consectetur. Dicta
-                     error quae, quia aliquid repellat cumque maxime nulla,
-                     sequi temporibus iure libero expedita! Id labore laborum
-                     dolorum quo magnam recusandae, necessitatibus quod unde
-                     doloribus porro tenetur, eveniet voluptate enim. Veniam
-                     tempore similique sit consequatur saepe qui vel ad eum
-                     exercitationem assumenda corrupti dolor, asperiores hic!
-                     Nam distinctio odit quibusdam eaque, nesciunt facere
-                     inventore officia dolor, reprehenderit vel accusantium
-                     quod. Repudiandae in tempore molestiae, amet recusandae
-                     est. Blanditiis nobis corporis molestias aspernatur, animi
-                     dignissimos veritatis vitae ex dolor dicta assumenda
-                     voluptates aliquam amet inventore vel magnam doloribus et
-                     natus tempora! Et, quisquam enim adipisci, asperiores
-                     praesentium corporis culpa laudantium aliquam sint
-                     voluptatibus voluptatem dolorum officia, in deleniti eum
-                     consequuntur saepe quod placeat vero maiores? Tenetur
-                     quibusdam totam illum amet dolorem. Recusandae ex cumque
-                     tenetur laudantium obcaecati doloribus placeat aperiam
-                     vitae quidem saepe fugit, voluptas, pariatur ab rem
-                     consequatur incidunt numquam necessitatibus accusantium
-                     repellat odit. Assumenda voluptatibus laudantium
-                     accusantium qui nemo. Accusantium architecto iure suscipit
-                     fugiat nam repellat quidem aut sed amet itaque autem, quis
-                     labore optio assumenda molestias, fuga obcaecati placeat
-                     minima. Repellendus asperiores molestiae iure dolor, cumque
-                     nisi illo?
-                  </p>
+                  <div className={styles.setsHeader}>
+                     <div className={styles.containerImg}>
+                        <Image
+                           className={styles.setImg}
+                           src={SetsImg}
+                           alt=""
+                           width={30}
+                           height={30}
+                           quality={100}
+                        />
+                        <h2 className={styles.h2}>Сеты</h2>
+                     </div>
+
+                     <div
+                        className={
+                           activeList ? styles.sortListActive : styles.sortList
+                        }
+                        onClick={() => setActiveList(!activeList)}
+                     >
+                        <h3>Сортировка</h3>
+                        <span>{sortList[activeSortIndex]}</span>
+                        {activeList && (
+                           <div className={styles.popupList}>
+                              {sortList.map((item, index) => (
+                                 <span
+                                    onClick={() => setActiveSortIndex(index)}
+                                    className={
+                                       activeSortIndex == index
+                                          ? styles.activeIndex
+                                          : styles.sortListItem
+                                    }
+                                    key={item}
+                                 >
+                                    {item}
+                                 </span>
+                              ))}
+                           </div>
+                        )}
+                        {activeList ? (
+                           <BiChevronUp className={styles.arrowIcon} />
+                        ) : (
+                           <BiChevronDown className={styles.arrowIcon} />
+                        )}
+                     </div>
+                  </div>
+                  <div className={styles.containerGallery}>
+                     <div className={styles.containerCard}>
+                        <CardItem />
+                        <CardItem />
+                        <CardItem />
+                        <CardItem />
+                        <CardItem />
+                        <CardItem />
+                        <CardItem />
+                        <CardItem />
+                        <CardItem />
+                        <CardItem />
+                        <CardItem />
+                        <CardItem />
+                     </div>
+                  </div>
+                  <motion.section
+                     className={
+                        activeBottom ? styles.activeBottom : styles.bottom
+                     }
+                     initial={{ opacity: 0, y: 30 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 1.5 }}
+                     viewport={{ once: true, amount: 0.2 }}
+                  >
+                     <h3>Заказать суши в Бишкеке</h3>
+                     <p>
+                        Ресторан “Суши и Лапша” предлагаем своим клиентам самые
+                        вкусные суши с доставкой на дом, приготовленные по
+                        классическим и адаптированным к европейской аудитории
+                        рецептам, а также собственным наработкам наших поваров.
+                        Мы ценим время наших клиентов, поэтому вы можете
+                        заказать суши в Харькове с доставкой на дом или в офис.
+                     </p>
+                     <ul className={styles.bottomList}>
+                        <span>В нашем меню более 20 видов суши:</span>
+                        <li>Классические с сырым лососем, тунцом, окунем.</li>
+                        <li>
+                           Экзотические с тигровой креветкой, морским гребешком.
+                        </li>
+                        <li>Пикантные с копченым лососем, угрем.</li>
+                     </ul>
+                     <p>
+                        В меню также представлены гунканы: с начинкой из красной
+                        икры и тобико, а также феликсы, где японский майонез
+                        сочетается с рыбой, морепродуктами, угрем. Любители
+                        острых блюд могут купить суши с соусом спайси.
+                        Популярные начинки — копченая курица, снежный краб,
+                        креветки, гребешки, тунец, лосось и окунь.
+                     </p>
+                     <div
+                        className={styles.btnMore}
+                        onClick={() => setAcitiveBottom(!activeBottom)}
+                     >
+                        Подробнее
+                        {activeBottom ? (
+                           <BiChevronUp className={styles.arrowIcon} />
+                        ) : (
+                           <BiChevronDown className={styles.arrowIcon} />
+                        )}
+                     </div>
+                  </motion.section>
                </motion.main>
             </AnimatePresence>
          </Layout>

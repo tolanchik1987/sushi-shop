@@ -12,6 +12,11 @@
    .containerSlide {
       padding: 10px;
       background: #ffffff;
+      transition: all 0.5s ease;
+      cursor: pointer;
+      &:hover {
+         box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, 0.09);
+      }
       p:nth-child(2) {
          font-weight: 500;
          font-size: 24px;
