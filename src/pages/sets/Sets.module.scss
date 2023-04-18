@@ -2,7 +2,6 @@
    display: flex;
    flex-direction: column;
    padding: 0 6.875rem;
-   // margin: 0 auto;
    min-width: 1170px;
    max-width: 1170px;
    min-height: calc(100vh - 247px);
@@ -23,15 +22,11 @@
             font-size: 36px;
          }
       }
-
       .sortList {
          position: relative;
          min-width: 198px;
          padding: 4px 4px 10px 14px;
-         // border-bottom: 0.5px solid #a4acad;
          height: 50px;
-         // background: #ffffff;
-         // box-shadow: 0px 0px 18px 6px rgba(0, 0, 0, 0.09);
          border-radius: 15px 15px 0px 0px;
          cursor: pointer;
          h3 {
@@ -48,7 +43,6 @@
             border-top: 0.5px solid #a4acad;
             background: #ffffff;
             box-shadow: 0px 10px 10px 4px rgba(0, 0, 0, 0.09);
-            // border-radius: 15px 15px 0px 0px;
             .sortListItem {
                display: flex;
                flex-direction: column;
@@ -67,14 +61,12 @@
          .arrowIcon {
             position: absolute;
             top: 45%;
-            // left: 50%;
          }
       }
       .sortListActive {
          position: relative;
          min-width: 198px;
          padding: 4px 4px 10px 14px;
-         // border-bottom: 0.5px solid #a4acad;
          height: 50px;
          background: #ffffff;
          box-shadow: 0px 0px 18px 6px rgba(0, 0, 0, 0.09);
@@ -95,7 +87,6 @@
             border-top: 0.5px solid #a4acad;
             background: #ffffff;
             box-shadow: 0px 10px 10px 4px rgba(0, 0, 0, 0.09);
-            // border-radius: 15px 15px 0px 0px;
             .sortListItem {
                display: flex;
                flex-direction: column;
@@ -114,7 +105,6 @@
          .arrowIcon {
             position: absolute;
             top: 45%;
-            // left: 50%;
          }
       }
    }
@@ -124,12 +114,9 @@
       margin-bottom: 174px;
       .containerCard {
          display: flex;
-         // flex-direction: column;
          column-gap: 42px;
          row-gap: 40px;
          flex-wrap: wrap;
-         // width: 288px;
-         // height: 400px;
       }
    }
    .bottom {

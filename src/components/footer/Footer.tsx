@@ -4,7 +4,7 @@ import styles from "./Footer.module.scss";
 
 type Props = {};
 
-const Footer: FC = (props: Props): JSX.Element => {
+const Footer: FC = (props: Props)=> {
    return (
       <footer className={styles.container}>
          <div className={styles.nav_footer}>
